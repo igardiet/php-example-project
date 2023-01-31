@@ -26,7 +26,24 @@ function register() {
 function deleteUser(event) {
   const userId = event.target.getAttribute("userId");
 
-   fetch(`deleteUser.php?userId=${userId}`)
+  fetch(`deleteUser.php?userId=${userId}`)
+    .then((res) => res.json())
+    .then((data) => console.log(data));
+}
+
+function editUser(event) {
+  let input = document.createElement("input");
+  input.type = "text";
+  input.setAttribute("userId", event.target.getAttribute("userId"));
+  input.addEventListener("focusout", submitEdit);
+  event.target.insertAdjacentElement("afterend", input);
+}
+
+function submitEdit(event) {
+  const userId = event.target.getAttribute("userId");
+  const value = event.target.value
+
+  fetch(`editUser.php?userId=${userId}&value=${value}`)
     .then((res) => res.json())
     .then((data) => console.log(data));
 }

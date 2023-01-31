@@ -16,5 +16,6 @@ require_once('getUsers.php');
         <label>Email: <input type="text" name="email" id="email"><br><br></label>
         <label>Password: <input type="password" name="pass" id="pass"><br></label>
         <button type="submit" id="submit">Submit</button>
+    
 </body>
 </html>
